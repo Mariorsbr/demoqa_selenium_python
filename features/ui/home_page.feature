@@ -1,9 +1,16 @@
 Feature: Home Page
 
-    Scenario: Check redirect
+    Scenario Outline: Check redirect
         Given I go to homepage 
-        When I click Alerts, Frame & Windows
+        When I click <header>
         Then I check message after redirection
         
-
+        Examples: 
+            | header |
+            | Elements |
+            | Forms |
+            | Alerts, Frame & Windows |
+            | Widgets |
+            | Interactions |
+            | Book Store Application |
             
