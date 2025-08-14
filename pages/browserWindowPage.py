@@ -1,11 +1,13 @@
 from selenium.webdriver.common.by import By
 
-class BrowserWidowPage:
-    def __init__(self,driver):
-        self.driver = driver
-        self.alert_frame_windows = driver.find_element(By.Xpath,'//*[@id="item-1" and contains(normalize-space(.), "Browser Windows")]')
+from pages.base_page import BasePage
 
+class BrowserWidowPage(BasePage):
+    browser_windows = (By.XPATH,"//*['span.text'][text()= 'Browser Windows')]") 
+
+    def __init__(self, browser):
+        super().__init__(browser)
 
 
     def goToBrowserWindows(self):
-        self.alert_frame_windows.click()
+        self.click(self.browser_windows)
